@@ -211,7 +211,6 @@ flex-shrink:0;
 <div class="result-flex">
 <span class="result-val gross-text" id="res-gross">₱0.00</span>
 </div>
-<div id="remark" class="remark"></div>
 <div class="small-note">Cash tips not included.</div>
 </div>
 </div>
@@ -241,15 +240,6 @@ function formatInput(el) {
     }
 }
 
-function getRemark(gross){
-    if(gross<=0)return "";
-    if(gross<100)return "Hina 🤣";
-    if(gross<250)return "Nice! 👍";
-    if(gross<550)return "Galing ah! 🤩";
-    if(gross<800)return "Sheesh, ganado siya! 😮";
-    if(gross<1200)return "Tangina, grabe oh! 🫨";
-    return "Tangina, paldo si gago! 🤪";
-}
 
 function copyRemit(btn){
     const text = resRemit.innerText.replace('₱','').replace(/,/g,'');
@@ -301,8 +291,6 @@ function calculate(){
     toggleBtn.style.display  = "block";
     saveBtn.style.display    = "block";
 
-    const remarkText = getRemark(gross);
-    remarkDiv.innerText = remarkText;
 
     if(remit < 0){
         remitBox.classList.add("remit-negative");
@@ -399,7 +387,6 @@ const resultCard    = document.getElementById("result-card");
 const toggleBtn     = document.getElementById("toggle-calc");
 const saveBtn       = document.getElementById("save-history");
 const calcSection   = document.getElementById("calc-section");
-const remarkDiv     = document.getElementById("remark");
 const remitBox      = document.getElementById("remit-box");
 const historyList   = document.getElementById("history-list");
 
